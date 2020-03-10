@@ -94,7 +94,6 @@ public class cezar
             int crypto = tekstZaszyfrowany.read();
             int extra = tekstPomocniczy.read();
             int key = Math.abs(crypto - extra);
-            System.out.println(key);
             
             File found_key_f = new File("key-found.txt");
             FileWriter found_key = new FileWriter(found_key_f);
