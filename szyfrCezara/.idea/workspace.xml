@@ -25,8 +25,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="RunManager">
-    <configuration name="Cezar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Cezar" />
+    <configuration name="cezar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cezar" />
       <module name="szyfrCezara" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -34,7 +34,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Cezar" />
+        <item itemvalue="Application.cezar" />
       </list>
     </recent_temporary>
   </component>

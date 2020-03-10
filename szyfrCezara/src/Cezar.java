@@ -2,7 +2,7 @@ import java.io.*;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Cezar
+public class cezar
 {
     static void szyfrujCezar() throws IOException
     {
@@ -363,15 +363,24 @@ public class Cezar
     
     public static void main(String[] args) throws IOException
     {
-        //if(args[0].equals("-c") && args[1].equals("-e"))
-         //szyfrujCezar();
-        //odszyfrujCezar("key.txt");
-        //kryptoanalizaCezarTekstJawny();
-        //kryptoanalizaCezarKryptogram();
-        
-        //szyfrujAfiniczny();
-        //odszyfrujAfiniczny("key.txt");
-        //kryptoanalizaAnificznyTekstJawny();
-        //kryptoanalizaAnificznyKryptogram();
+        if(args[0].equals("-c") && args[1].equals("-e"))
+          szyfrujCezar();
+        else if (args[0].equals("-c") && args[1].equals("-d"))
+            odszyfrujCezar("key.txt");
+        else if (args[0].equals("-c") && args[1].equals("-j"))
+            kryptoanalizaCezarTekstJawny();
+        else if (args[0].equals("-c") && args[1].equals("-k"))
+            kryptoanalizaCezarKryptogram();
+        else if (args[0].equals("-a") && args[1].equals("-e"))
+            szyfrujAfiniczny();
+        else if (args[0].equals("-a") && args[1].equals("-d"))
+            odszyfrujAfiniczny("key.txt");
+        else if (args[0].equals("-a") && args[1].equals("-k"))
+            kryptoanalizaAnificznyKryptogram();
+        //else if (args[0].equals("-a") && args[1].equals("-j"))
+            //kryptoanalizaAnificznyTekstJawny();
+        else
+            System.out.println("Podane niepoprawne opcje");
+    
     }
 }
