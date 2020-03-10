@@ -24,6 +24,11 @@
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marek\Desktop\studia\Rok III\Kryptografia\szyfrCezara\src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="cezar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cezar" />
@@ -52,25 +57,25 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="137" key="GridCell.Tab.0.bottom" timestamp="1583856848289">
+    <state width="1493" height="137" key="GridCell.Tab.0.bottom" timestamp="1583857415778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="137" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583856848289" />
-    <state width="1493" height="137" key="GridCell.Tab.0.center" timestamp="1583856848289">
+    <state width="1493" height="137" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583857415778" />
+    <state width="1493" height="137" key="GridCell.Tab.0.center" timestamp="1583857415778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="137" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583856848289" />
-    <state width="1493" height="137" key="GridCell.Tab.0.left" timestamp="1583856848289">
+    <state width="1493" height="137" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583857415778" />
+    <state width="1493" height="137" key="GridCell.Tab.0.left" timestamp="1583857415778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="137" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583856848289" />
-    <state width="1493" height="137" key="GridCell.Tab.0.right" timestamp="1583856848289">
+    <state width="1493" height="137" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583857415778" />
+    <state width="1493" height="137" key="GridCell.Tab.0.right" timestamp="1583857415778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="137" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583856848289" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583855896886">
+    <state width="1493" height="137" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583857415778" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583860810677">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583855896886" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583860810677" />
   </component>
 </project>
