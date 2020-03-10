@@ -40,9 +40,9 @@ public class Cezar
         }
         tekstZaszyfrowany.close();
     }
-    static void odszyfrujCezar() throws IOException
+    static void odszyfrujCezar(String pathName) throws IOException
     {
-        File klucz_f = new File("key.txt");
+        File klucz_f = new File(pathName);
         Scanner reader = new Scanner(klucz_f);
         int klucz = reader.nextInt();//od 1 do 25!!!!!!!!!!!!
         if(klucz < 1 || klucz > 25)
@@ -78,6 +78,36 @@ public class Cezar
         tekstOdszyfrowany.close();
     }
     
+    static void kryptoanalizaCezarTekstJawny() throws IOException
+    {
+        File tekstZaszyfrowany_f = new File("crypto.txt");
+        FileReader fr = new FileReader(tekstZaszyfrowany_f);
+        BufferedReader tekstZaszyfrowany = new BufferedReader(fr);
+        
+        
+        File tekstPomocniczy_f = new File("extra.txt");
+        FileReader fr1 = new FileReader(tekstPomocniczy_f);
+        BufferedReader tekstPomocniczy = new BufferedReader(fr1);
+        
+        try
+        {
+            int crypto = tekstZaszyfrowany.read();
+            int extra = tekstPomocniczy.read();
+            int key = Math.abs(crypto - extra);
+            System.out.println(key);
+            
+            File found_key_f = new File("key-found.txt");
+            FileWriter found_key = new FileWriter(found_key_f);
+            found_key.write(Integer.toString(key));
+            found_key.flush();
+            found_key.close();
+            odszyfrujCezar("key-found.txt");
+        }catch (Exception e){
+            System.out.println("Nie podano tekstu pomocniczego w pliku extra.txt");
+            e.printStackTrace();
+        }
+    }
+    
     static void kryptoanalizaCezarKryptogram() throws IOException
     {
         File tekstZaszyfrowany_f = new File("crypto.txt");
@@ -110,6 +140,7 @@ public class Cezar
         }
         tekstZaszyfrowany.close();
     }
+    
     
     static void szyfrujAfiniczny() throws IOException
     {
@@ -156,20 +187,34 @@ public class Cezar
         }
         tekstZaszyfrowany.close();
     }
+    
+    static int gcd(int n1, int n2) {
+        int gcd = 1;
+        for (int i = 1; i <= n1 && i <= n2; i++) {
+            if (n1 % i == 0 && n2 % i == 0) {
+                gcd = i;
+            }
+        }
+        return gcd;
+    }
     static int odwrotneModulo(int a, int count)
     {
-        int temp = (a * count) % 26;
-        if (temp == 1)
-            return count;
-        else
-        {
-            count++;
-            return odwrotneModulo(a, count);
-        }
+         if(gcd(a, 26)==1)
+         {
+             int temp = Math.floorMod((a * count), 26);
+             if (temp == 1)
+                 return count;
+             else
+             {
+                 count++;
+                 return odwrotneModulo(a, count);
+             }
+         }
+         else return -1;
     }
-    static void odszyfrujAfiniczny() throws IOException
+    static void odszyfrujAfiniczny(String path) throws IOException
     {
-        File klucz_f = new File("key.txt");
+        File klucz_f = new File(path);
         Scanner reader = new Scanner(klucz_f);
        
         int klucz_a, klucz_b;
@@ -189,7 +234,7 @@ public class Cezar
         }
 
         int klucz_a_inverse = odwrotneModulo(klucz_a, 1);
-        System.out.println(klucz_a_inverse);
+        //System.out.println(klucz_a_inverse);
         
         
         File tekstOdszyfrowany_f = new File("decrypt.txt");
@@ -218,6 +263,60 @@ public class Cezar
         }
         tekstOdszyfrowany.close();
     }
+    
+    /*static void kryptoanalizaAnificznyTekstJawny() throws FileNotFoundException
+    {
+        File tekstZaszyfrowany_f = new File("crypto.txt");
+        FileReader fr = new FileReader(tekstZaszyfrowany_f);
+        BufferedReader tekstZaszyfrowany = new BufferedReader(fr);
+    
+    
+        File tekstPomocniczy_f = new File("extra.txt");
+        FileReader fr1 = new FileReader(tekstPomocniczy_f);
+        BufferedReader tekstPomocniczy = new BufferedReader(fr1);
+    
+        try
+        {
+            BigInteger crypto1 = new BigInteger(String.valueOf(tekstZaszyfrowany.read()));
+            BigInteger crypto2 = new BigInteger(String.valueOf(tekstZaszyfrowany.read()));
+            BigInteger mod = new BigInteger("26");
+    
+            BigInteger extra1 = new BigInteger(String.valueOf(tekstPomocniczy.read()));
+            BigInteger extra2 = new BigInteger(String.valueOf(tekstPomocniczy.read()));
+
+            int key_a;
+            int key_b;
+            
+            //crypto1 = Alfa*extra1 + Beta
+            //crypto2 = Alfa*extra2 + Beta
+            
+            BigInteger alfa_number = extra1.subtract(extra2);
+            
+            try
+            {
+                BigInteger alfa = (crypto1.subtract(crypto2)).modInverse(mod).multiply(alfa_number.modInverse(mod).mod(mod)).mod(mod);
+                //int alfa = Math.floorMod(( odwrotneModulo((crypto1 - crypto2), 1) * odwrotneModulo(alfa_number, 1) ), 26);
+                //int beta = Math.floorMod((crypto1 - 97 - alfa * (extra1 - 97)), 26);
+    
+                File found_key_f = new File("key-found.txt");
+                FileWriter found_key = new FileWriter(found_key_f);
+                found_key.write(String.valueOf(alfa));
+                System.out.println("looool"+alfa);
+                //found_key.write(Integer.toString(alfa));
+                //found_key.write(" "+ beta);
+                found_key.flush();
+                found_key.close();
+                odszyfrujAfiniczny("key-found.txt");
+            }catch (Exception e){
+                System.out.println("Niemożliwe znalezienie klucza");
+                e.printStackTrace();
+            }
+            
+        }catch (Exception e){
+            System.out.println("Nie podano tekstu pomocniczego w pliku extra.txt");
+//            e.printStackTrace();
+        }
+    }*/
     
     static void kryptoanalizaAnificznyKryptogram() throws IOException
     {
@@ -264,13 +363,15 @@ public class Cezar
     
     public static void main(String[] args) throws IOException
     {
-        if(args[0].equals("-c") && args[1].equals("-e"))
-         szyfrujCezar();
-        //odszyfrujCezar();
+        //if(args[0].equals("-c") && args[1].equals("-e"))
+         //szyfrujCezar();
+        //odszyfrujCezar("key.txt");
+        //kryptoanalizaCezarTekstJawny();
         //kryptoanalizaCezarKryptogram();
         
         //szyfrujAfiniczny();
-        //odszyfrujAfiniczny();
-        kryptoanalizaAnificznyKryptogram();
+        //odszyfrujAfiniczny("key.txt");
+        //kryptoanalizaAnificznyTekstJawny();
+        //kryptoanalizaAnificznyKryptogram();
     }
 }
