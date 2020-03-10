@@ -147,8 +147,10 @@ public class cezar
         Scanner reader = new Scanner(klucz_f);
         int klucz_a, klucz_b;
         if(reader.hasNextInt())
-            klucz_a = reader.nextInt();// dwie liczby
-        else
+	{
+            klucz_a = reader.nextInt();/////////////////////////////////////////
+        }
+	 else
         {
             System.out.println("Nie podano kluczy w pliku key.txt!");
             return;
