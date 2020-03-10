@@ -11,7 +11,7 @@ public class cezar
         
         File klucz_f = new File("key.txt");
         Scanner reader = new Scanner(klucz_f);
-        int klucz = reader.nextInt();//od 1 do 25!!!!!!!!!!!!
+        int klucz = reader.nextInt();
         if(klucz < 1 || klucz > 25)
         {
             System.out.println("błędny klucz");
@@ -147,14 +147,28 @@ public class cezar
         Scanner reader = new Scanner(klucz_f);
         int klucz_a, klucz_b;
         if(reader.hasNextInt())
-            klucz_a = reader.nextInt();// dwie liczby
+        {
+            klucz_a = reader.nextInt();
+            if(klucz_a%2==0 || klucz_a%13==0)
+            {
+                System.out.println("A nie może być podzielne przez 2 lub 13");
+                return;
+            }
+        }
         else
         {
             System.out.println("Nie podano kluczy w pliku key.txt!");
             return;
         }
         if(reader.hasNextInt())
-            klucz_b = reader.nextInt();// dwie liczby
+        {
+            klucz_b = reader.nextInt();
+            if(klucz_b<=0 || klucz_b>=26)
+            {
+                System.out.println("B musi być w przedziale [1,25]");
+                return;
+            }
+        }
         else
         {
             System.out.println("Nie podano dwóch liczb w pliku key.txt!");
@@ -218,14 +232,28 @@ public class cezar
        
         int klucz_a, klucz_b;
         if(reader.hasNextInt())
-            klucz_a = reader.nextInt();// dwie liczby
+        {
+            klucz_a = reader.nextInt();
+            if(klucz_a%2==0 || klucz_a%13==0)
+            {
+                System.out.println("A nie może być podzielne przez 2 lub 13");
+                return;
+            }
+        }
         else
         {
             System.out.println("Nie podano kluczy w pliku key.txt!");
             return;
         }
         if(reader.hasNextInt())
-            klucz_b = reader.nextInt();// dwie liczby
+        {
+            klucz_b = reader.nextInt();
+            if(klucz_b<=0 || klucz_b>=26)
+            {
+                System.out.println("B musi być w przedziale [1,25]");
+                return;
+            }
+        }
         else
         {
             System.out.println("Nie podano dwóch liczb w pliku key.txt!");
@@ -233,7 +261,6 @@ public class cezar
         }
 
         int klucz_a_inverse = odwrotneModulo(klucz_a, 1);
-        //System.out.println(klucz_a_inverse);
         
         
         File tekstOdszyfrowany_f = new File("decrypt.txt");
@@ -362,24 +389,24 @@ public class cezar
     
     public static void main(String[] args) throws IOException
     {
-        if(args[0].equals("-c") && args[1].equals("-e"))
-          szyfrujCezar();
-        else if (args[0].equals("-c") && args[1].equals("-d"))
-            odszyfrujCezar("key.txt");
-        else if (args[0].equals("-c") && args[1].equals("-j"))
-            kryptoanalizaCezarTekstJawny();
-        else if (args[0].equals("-c") && args[1].equals("-k"))
-            kryptoanalizaCezarKryptogram();
-        else if (args[0].equals("-a") && args[1].equals("-e"))
+//        if(args[0].equals("-c") && args[1].equals("-e"))
+//          szyfrujCezar();
+//        else if (args[0].equals("-c") && args[1].equals("-d"))
+//            odszyfrujCezar("key.txt");
+//        else if (args[0].equals("-c") && args[1].equals("-j"))
+//            kryptoanalizaCezarTekstJawny();
+//        else if (args[0].equals("-c") && args[1].equals("-k"))
+//            kryptoanalizaCezarKryptogram();
+//        else if (args[0].equals("-a") && args[1].equals("-e"))
             szyfrujAfiniczny();
-        else if (args[0].equals("-a") && args[1].equals("-d"))
-            odszyfrujAfiniczny("key.txt");
-        else if (args[0].equals("-a") && args[1].equals("-k"))
-            kryptoanalizaAnificznyKryptogram();
+//        else if (args[0].equals("-a") && args[1].equals("-d"))
+//            odszyfrujAfiniczny("key.txt");
+//        else if (args[0].equals("-a") && args[1].equals("-k"))
+//            kryptoanalizaAnificznyKryptogram();
         //else if (args[0].equals("-a") && args[1].equals("-j"))
             //kryptoanalizaAnificznyTekstJawny();
-        else
-            System.out.println("Podane niepoprawne opcje");
+//        else
+//            System.out.println("Podane niepoprawne opcje");
     
     }
 }
