@@ -44,7 +44,7 @@ public class cezar
     {
         File klucz_f = new File(pathName);
         Scanner reader = new Scanner(klucz_f);
-        int klucz = reader.nextInt();//od 1 do 25!!!!!!!!!!!!
+        int klucz = reader.nextInt();
         if(klucz < 1 || klucz > 25)
         {
             System.out.println("błędny klucz");
@@ -118,7 +118,7 @@ public class cezar
         FileWriter tekstOdszyfrowany = new FileWriter(tekstOdszyfrowany_f);
         for(int j = 1; j < 26; j++)
         {
-            tekstOdszyfrowany.write("\n");//dodatkowy tekst?
+            tekstOdszyfrowany.write("\n");
             int c;
             while((c = tekstZaszyfrowany.read()) != -1)
             {
@@ -389,24 +389,24 @@ public class cezar
     
     public static void main(String[] args) throws IOException
     {
-//        if(args[0].equals("-c") && args[1].equals("-e"))
-//          szyfrujCezar();
-//        else if (args[0].equals("-c") && args[1].equals("-d"))
-//            odszyfrujCezar("key.txt");
-//        else if (args[0].equals("-c") && args[1].equals("-j"))
-//            kryptoanalizaCezarTekstJawny();
-//        else if (args[0].equals("-c") && args[1].equals("-k"))
-//            kryptoanalizaCezarKryptogram();
-//        else if (args[0].equals("-a") && args[1].equals("-e"))
+        if(args[0].equals("-c") && args[1].equals("-e"))
+          szyfrujCezar();
+        else if (args[0].equals("-c") && args[1].equals("-d"))
+            odszyfrujCezar("key.txt");
+        else if (args[0].equals("-c") && args[1].equals("-j"))
+            kryptoanalizaCezarTekstJawny();
+        else if (args[0].equals("-c") && args[1].equals("-k"))
+            kryptoanalizaCezarKryptogram();
+        else if (args[0].equals("-a") && args[1].equals("-e"))
             szyfrujAfiniczny();
-//        else if (args[0].equals("-a") && args[1].equals("-d"))
-//            odszyfrujAfiniczny("key.txt");
-//        else if (args[0].equals("-a") && args[1].equals("-k"))
-//            kryptoanalizaAnificznyKryptogram();
+        else if (args[0].equals("-a") && args[1].equals("-d"))
+            odszyfrujAfiniczny("key.txt");
+        else if (args[0].equals("-a") && args[1].equals("-k"))
+            kryptoanalizaAnificznyKryptogram();
         //else if (args[0].equals("-a") && args[1].equals("-j"))
             //kryptoanalizaAnificznyTekstJawny();
-//        else
-//            System.out.println("Podane niepoprawne opcje");
+        else
+            System.out.println("Podane niepoprawne opcje");
     
     }
 }
