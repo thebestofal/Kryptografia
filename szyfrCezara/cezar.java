@@ -202,6 +202,8 @@ public class cezar
     }
     
     static int gcd(int n1, int n2) {
+		n1 = (n1 > 0) ? n1 : -n1;
+		n2 = (n2 > 0) ? n2 : -n2;
         int gcd = 1;
         for (int i = 1; i <= n1 && i <= n2; i++) {
             if (n1 % i == 0 && n2 % i == 0) {
@@ -290,58 +292,63 @@ public class cezar
         tekstOdszyfrowany.close();
     }
     
-    /*static void kryptoanalizaAnificznyTekstJawny() throws FileNotFoundException
+	static void kryptoanalizaAnificznyTekstJawny() throws IOException
     {
         File tekstZaszyfrowany_f = new File("crypto.txt");
         FileReader fr = new FileReader(tekstZaszyfrowany_f);
         BufferedReader tekstZaszyfrowany = new BufferedReader(fr);
-    
-    
+        
+        
         File tekstPomocniczy_f = new File("extra.txt");
         FileReader fr1 = new FileReader(tekstPomocniczy_f);
         BufferedReader tekstPomocniczy = new BufferedReader(fr1);
-    
+        
         try
         {
-            BigInteger crypto1 = new BigInteger(String.valueOf(tekstZaszyfrowany.read()));
-            BigInteger crypto2 = new BigInteger(String.valueOf(tekstZaszyfrowany.read()));
-            BigInteger mod = new BigInteger("26");
-    
-            BigInteger extra1 = new BigInteger(String.valueOf(tekstPomocniczy.read()));
-            BigInteger extra2 = new BigInteger(String.valueOf(tekstPomocniczy.read()));
-            int key_a;
-            int key_b;
-            
-            //crypto1 = Alfa*extra1 + Beta
-            //crypto2 = Alfa*extra2 + Beta
-            
-            BigInteger alfa_number = extra1.subtract(extra2);
-            
-            try
-            {
-                BigInteger alfa = (crypto1.subtract(crypto2)).modInverse(mod).multiply(alfa_number.modInverse(mod).mod(mod)).mod(mod);
-                //int alfa = Math.floorMod(( odwrotneModulo((crypto1 - crypto2), 1) * odwrotneModulo(alfa_number, 1) ), 26);
-                //int beta = Math.floorMod((crypto1 - 97 - alfa * (extra1 - 97)), 26);
-    
-                File found_key_f = new File("key-found.txt");
-                FileWriter found_key = new FileWriter(found_key_f);
-                found_key.write(String.valueOf(alfa));
-                System.out.println("looool"+alfa);
-                //found_key.write(Integer.toString(alfa));
-                //found_key.write(" "+ beta);
-                found_key.flush();
-                found_key.close();
-                odszyfrujAfiniczny("key-found.txt");
-            }catch (Exception e){
-                System.out.println("Niemożliwe znalezienie klucza");
-                e.printStackTrace();
-            }
-            
+            int c1 = tekstZaszyfrowany.read();
+			int c2 = tekstZaszyfrowany.read();
+
+            int m1 = tekstPomocniczy.read();
+			int m2 = tekstPomocniczy.read();
+			String key;
+
+			if(m1 > 96 && m1 < 123)
+				m1 = m1 - 97;
+			else if (m1 > 64 && m1 < 97)
+				m1 = m1 - 65;
+
+			if(m2 > 96 && m2 < 123)
+				m2 = m2 - 97;
+			else if (m2 > 64 && m2 < 97)
+				m2 = m2 - 65;
+			
+
+			if(odwrotneModulo(m1 - m2 ,1) != -1) //jesli istnieje odwrotnosc w mod 26
+			{
+				int a = (c1 - c2)*(m1 - m2);
+				int b = -(m1)*a + (c1-97);
+			
+				a = Math.floorMod(a, 26);
+				b = Math.floorMod(b, 26);
+				key = a +" "+ b;
+				
+		        File found_key_f = new File("key-found.txt");
+		        FileWriter found_key = new FileWriter(found_key_f);
+		        found_key.write(key);
+		        found_key.flush();
+		        found_key.close();
+		        
+			}
+			else 
+				System.out.println("Niemozliwe znalezienie klucza!");
+           
+           
         }catch (Exception e){
             System.out.println("Nie podano tekstu pomocniczego w pliku extra.txt");
-//            e.printStackTrace();
+            e.printStackTrace();
         }
-    }*/
+    }
+
     
     static void kryptoanalizaAnificznyKryptogram() throws IOException
     {
@@ -402,8 +409,8 @@ public class cezar
             odszyfrujAfiniczny("key.txt");
         else if (args[0].equals("-a") && args[1].equals("-k"))
             kryptoanalizaAnificznyKryptogram();
-        //else if (args[0].equals("-a") && args[1].equals("-j"))
-            //kryptoanalizaAnificznyTekstJawny();
+        else if (args[0].equals("-a") && args[1].equals("-j"))
+            kryptoanalizaAnificznyTekstJawny();
         else
             System.out.println("Podane niepoprawne opcje");
     

@@ -1,3 +1,4 @@
+//author: Marek Skrzypkowski
 class Main
 {
 	public static void main(String[] args)
@@ -7,16 +8,16 @@ class Main
 		
 		byte[] b_personal = personal.getBytes();
 		byte[] b_personal_ = personal_.getBytes();
-		int same_bits = 0;
+		int diff_bits = 0;
 		for(int i = 0; i < b_personal.length; i++)
 		{
 			long a = Character.getNumericValue(args[0].charAt(i));
 			long b = Character.getNumericValue(args[1].charAt(i));
-			same_bits += Long.bitCount( a ^ b);
+			diff_bits += Long.bitCount( a ^ b);
 		}
 		
-		System.out.println("******* "+same_bits+" *********");
-		int diff_bits = b_personal.length*4 - same_bits;
+		System.out.println("******* "+diff_bits+" *********");
+		int same_bits = b_personal.length*4 - diff_bits;
 		System.out.print("Liczba rozniacych sie bitow: " + diff_bits
 		+" z "+b_personal.length*4 + ", procentowo: " +
 		((double)diff_bits / (b_personal.length*4))*100 + "%.");

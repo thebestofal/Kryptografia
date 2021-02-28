@@ -2,34 +2,34 @@ cat hash.pdf personal.txt | md5sum >> hash.txt
 cat hash.pdf personal_.txt | md5sum >> hash.txt
 8decac52bcd03e574197f589fed9923b  
 3096b9b1527612a984b0758ba4ab3e70  
-Liczba rozniacych sie bitow: 63 z 128, procentowo: 49.21875%
+Liczba rozniacych sie bitow: 65 z 128, procentowo: 50.78125%.
 
 cat hash.pdf personal.txt | sha1sum >> hash.txt
 cat hash.pdf personal_.txt | sha1sum >> hash.txt
 07b216aefed472356439b94585c66171de6e94a8  
 03259cc5af902436f456322341d78504cba7a7ba  
-Liczba rozniacych sie bitow: 92 z 160, procentowo: 57.49999999999999%.
+Liczba rozniacych sie bitow: 68 z 160, procentowo: 42.5%.
 
 cat hash.pdf personal.txt | sha224sum >> hash.txt
 cat hash.pdf personal_.txt | sha224sum >> hash.txt
 6f22c64c66af257a599ed301fa5f4e4967bd9c9ee8f1fba1f816cdc5  
 f740104639cacafba4941aac63d0796d030b8f6e19593d806d8fe8a0
-Liczba rozniacych sie bitow: 114 z 224, procentowo: 50.89285714285714%.
+Liczba rozniacych sie bitow: 110 z 224, procentowo: 49.107142857142854%
 
 cat hash.pdf personal.txt | sha256sum >> hash.txt
 cat hash.pdf personal_.txt | sha256sum >> hash.txt
 cd09319e0256ad2baea76074ce98ec6146ff26e21356f2cf0d0dd3b9d8db1e34  
 2c551a5796ab042e3a5cd2cfc003e0c43698b9db4276fa8afc84153a2f8bc37d  
-Liczba rozniacych sie bitow: 131 z 256, procentowo: 51.171875%.
+Liczba rozniacych sie bitow: 125 z 256, procentowo: 48.828125%.
 
 cat hash.pdf personal.txt | sha384sum >> hash.txt
 cat hash.pdf personal_.txt | sha284sum >> hash.txt
 da068939f3eb8e886d74e99c191aa2b6a573ffd661311cf3103f12f2638c8e25e7367420c77611efdaafb02b17bd9f6b  
 ad5c95704762379a71fc5958036c9d3c6403d484332bc8ba0ddad7f2bd7c7ca99435728c1b5fa013eb12d094730fda66  
-Liczba rozniacych sie bitow: 207 z 384, procentowo: 53.90625%
+Liczba rozniacych sie bitow: 177 z 384, procentowo: 46.09375%.
 
 cat hash.pdf personal.txt | sha512sum >> hash.txt
 cat hash.pdf personal_.txt | sha512sum >> hash.txt
 a5e48f39531baa0c0ea2774ed777b2241306a641eebab52afd6f52ec683b9d3fb8639638a0ff3917abdbdf0bebff17d05daac31b18765ce81a7318aae8ce2968  
 298bcc8f612f2622f23f79e176b4c8794e71b7820771aebb3ae0c81a8ca6592a13d88f4ec77c4cbcec452fb092f5604e3da926c8297d3abc3f3c04ae1b97a12a  
-Liczba rozniacych sie bitow: 249 z 512, procentowo: 48.6328125%
+Liczba rozniacych sie bitow: 263 z 512, procentowo: 51.3671875%.

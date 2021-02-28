@@ -1,0 +1,12 @@
+pub   dsa1024 2009-12-31 [SC]
+      787B83ECD8B49BBFE846B93D0194B2F24DB19F11
+uid           [    nieznane   ] Tadeusz Żeleński (Boy) <tzb@ziemianska.pl>
+sub   elg1024 2009-12-31 [E]
+
+pub   rsa1024 2020-05-16 [SC] [wygasa: 2020-07-15]
+      6ABBDB714C15A0F710662D86F9D9D582B938FC5E
+uid           [    nieznane   ] Andrzej Borzyszkowski (laboratorium z kryptografii) <a.borzyszkowski@inf.ug.edu.pl>
+sub   rsa1024 2020-05-16 [E] [wygasa: 2020-07-15]
+
+Skrzypkowski
+
