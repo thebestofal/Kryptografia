@@ -1,0 +1,11 @@
+pub   rsa3072 2021-05-26 [SC] [wygasa: 2023-05-26]
+      0404139D4A6919CD7277BFA5D31EDB8F28C0C175
+uid           [    nieznane   ] Andrzej Borzyszkowski <a.borzyszkowski@inf.ug.edu.pl>
+sub   rsa3072 2021-05-26 [E] [wygasa: 2023-05-26]
+
+pub   dsa1024 2009-12-31 [SC]
+      787B83ECD8B49BBFE846B93D0194B2F24DB19F11
+uid           [    nieznane   ] Tadeusz Żeleński (Boy) <tzb@ziemianska.pl>
+sub   elg1024 2009-12-31 [E]
+
+Skrzypkowski
